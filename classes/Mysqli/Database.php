@@ -34,7 +34,7 @@ class Database {
 		
 		$sql = "SELECT * FROM clocks WHERE id = '".intval($id)."'";
 		$res = mysqli_query($this->db,$sql);
-		
+	
 		if(!$res){
 			return FALSE;
 		}
@@ -185,7 +185,7 @@ public function insert_order($nm,$e_mail,$address,$price,$name,$count){
 }
 public function get_data(){
 	$timestamp = time() - 20*24*60*60;
-    $rdate = date("d.m.Y H:i:s", $timestamp);
+    $rdate = date("Y.m.d H:i:s", $timestamp);
 	$sql = "SELECT * FROM clocks WHERE data > '$rdate'";
     $res = mysqli_query($this->db,$sql);
 	if(!$res){
