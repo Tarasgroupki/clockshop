@@ -45,7 +45,9 @@ class Admin {
 		return $row;
 	}
 	public function insert_things($image,$title,$mark,$country,$description,$short_description,$price,$year){
-		$sql = "Insert into clocks values('','images/$image','$title','$mark','$country','$description','$short_description','$price','$year','')";
+		$timestamp = time();
+        $rdate = date("Y.m.d H:i:s", $timestamp);
+		$sql = "Insert into clocks values('','images/$image','$title','$mark','$country','$description','$short_description','$price','$year','$rdate')";
 		$res = mysqli_query($this->db_adm,$sql);
 		if(!$res){
 			return FALSE;
