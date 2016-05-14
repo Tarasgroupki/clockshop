@@ -31,7 +31,7 @@ class Page{
 	public function get_clock(){
 		$db = new Database(HOST,USER,PASS,DB);
 		$result = $db->get_clocks();
-		
+		//$count_clocks = count($result);
 		return $result;
 	}
 	public function get_product($mark){
