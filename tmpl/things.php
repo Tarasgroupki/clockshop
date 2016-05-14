@@ -4,6 +4,8 @@
 <div id="things-menu"><p class="things-menu">Вироби</div>
 <div id="leftclocks">
 <?php if(isset($text)){?>
+<?//=$text[1];?>
+<?//=$text[2][1];?>
 <? foreach($text as $item){?>
 <?if(($item['id'] % 2 == 0)||(($item['id'] % 2 != 0))){?>
 <div class="clock1"><img src="<?=$item['image'];?>" alt="123"/></div><div class="description1"><p class="title"><b><?=$item['title'];?></b>

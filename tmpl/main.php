@@ -5,9 +5,14 @@
    <div id="text">Магазин Годинників
    <?$cart = $_SESSION['cart'];?>
     <div id="text1">Картка покупця:<span><?=$cart;?></span>т</div>
-	<a href="/index.php?cart"><div id="text2"></div></a>
+	<a href="/index.php?cart"><div onmouseover="get_cart()" id="text2"></div></a>
 	
 	<div id="text3">
+	<script>
+	/*function get_cart(){
+		alert("<div color='red'></div>");
+	}*/
+	</script>
 	<p>Валюта:
 <select name=type><option selected name = "dol" value="d">US dollar
 <option name="grn" value="g">UKR gгривня
