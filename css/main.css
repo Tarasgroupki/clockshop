@@ -338,3 +338,45 @@ table, th, td {
 #comment{
 	margin-top:140px;
 }
+#navigation{
+	margin-top:260px;
+	margin-left:360px;
+}
+.comment_date{
+	margin-left:250px;
+	margin-top:-40px;
+	color:silver;
+}
+.panel{
+	display:none;
+}
+.js-panel-open{
+	background-color: rgba(255, 255, 255, 0.75);
+	margin-left:320px;
+	margin-top:15px;
+	min-height:100px;
+	width:370px;
+	display:block;
+	position:absolute;
+	
+}
+#cart_btn{
+	background:url("../images/cart.png") no-repeat;
+	height:30px;
+	width:105px;
+}
+#cart_btn:hover{
+	background:url("../images/cart_active.png") no-repeat;
+	height:30px;
+	width:105px;
+}
+#cart_order_btn{
+	height:32px;
+	width:176px;
+	background:url("../images/cart_order.png") no-repeat;
+}
+#cart_order_btn:hover{
+	height:32px;
+	width:176px;
+	background:url("../images/cart_order_active.png") no-repeat;
+}
