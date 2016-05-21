@@ -120,15 +120,30 @@ public function get_searches($srch){
 return $row;
 }
 public function get_thing_to($reg){
-	$sql = "SELECT * FROM clocks WHERE id = '".mysqli_real_escape_string($this->db,$reg)."'";
+	//print_r($reg[0]);
+	for($i = 0;$i<14;$i++){
+		$reg[0]['counter'.$i] = NULL;
+	}
+	//print_r($reg);
+	foreach($reg[0] as $key => $value){
+		for($i = 0;$i<14;$i++){
+	
+    if($value != NULL && $value != 0){
+		//echo $value;
+	$sql = "SELECT * FROM clocks WHERE id = '".mysqli_real_escape_string($this->db,$value)."'";
 	$res = mysqli_query($this->db,$sql);
 	if(!$res){
 		return FALSE;
 	}
-	//for($i = 0; $i<mysql_num_rows($res);$i++){
+		//for($i = 0; $i<mysql_num_rows($res);$i++){
 	$row = mysqli_fetch_all($res,MYSQLI_ASSOC);
+	if($value == $i){
+	$escape[] = $row;
+		}}}}
+	//print_r($escape);
+	//print_r($row);
 //}
-return $row;
+return $escape;
 }
 /*public function get_thing_to1($reg1){
 	$sql = "SELECT * FROM clocks WHERE id = '$reg1'";
@@ -168,14 +183,16 @@ public function insert_data($login,$password,$name,$visit_cart,$picture){
 		}
 	$row = mysqli_fetch_all($res,MYSQLI_ASSOC);
 	return $row;
-}
+}*/
 public function insert_comment($txt,$id,$log){
-	$sql = "Insert into comment values('','$id','$log','$txt')";
+	$timestamp = time() - 20*24*60*60;
+    $rdate = date("Y.m.d", $timestamp);
+	$sql = "Insert into comment values('','$id','$log','$txt','$rdate')";
 	$res = mysqli_query($this->db,$sql);
 	if(!$res){
 			return FALSE;
 		}	
-}*/
+}
 public function insert_order($nm,$e_mail,$address,$price,$name,$count){
 	$sql = "Insert into orders values('','$nm','$e_mail','$address','$name','$price','$count')";
 	$res = mysqli_query($this->db,$sql);

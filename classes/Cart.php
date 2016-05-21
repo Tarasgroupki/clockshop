@@ -2,9 +2,11 @@
 //session_start();
 class Cart {
 	public function item($reg){
+		//print_r($reg);
 		$db = new Database(HOST,USER,PASS,DB);
-		if(isset($_SESSION['cl'])){
-		$result = $db->get_thing_to($_SESSION['cl']);}
+		//if(isset($_SESSION['cl'])){
+		$result = $db->get_thing_to($reg);
+		//}
 		
 		return $result;
 	}

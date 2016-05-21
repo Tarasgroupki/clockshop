@@ -72,16 +72,25 @@ class Page{
 			$db = new Database(HOST,USER,PASS,DB);
 			$db->insert_order($nm,$e_mail,$address,$price,$name,$count);
 	}
-   /* public function select_com($id){
+  /* public function select_com($id){
 		$db = new Database(HOST,USER,PASS,DB);
 		$result = $db->select_comment($id);
 		
 		return $result;
-	} 
+	} */
 	public function insert_com($txt,$id,$log){
 		$db = new Database(HOST,USER,PASS,DB);
 		$db->insert_comment($txt,$id,$log);
-	}*/
+	}
+	public function navigation($count_clocks){
+	//$count_clocks = 8;
+	$get_on_one_page = ceil($count_clocks / QUANTITY_NEWS);
+	//echo $get_on_one_page;
+	for($i = 1;$i<=$get_on_one_page;$i++){
+		$pages[] = $i;
+	}
+	return $pages;
+	} 
 	public function get_body($text,$file){
 		ob_start();
 		include 'tmpl/'.$file.'.php';
