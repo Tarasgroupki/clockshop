@@ -1,0 +1,18 @@
+﻿
+
+DirectoryIndex index.php
+Options Indexes FollowSymLinks
+
+RewriteEngine On
+php_value register_globals 0
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^id/([0-9]+)/?$    index.php?id=$1    [NC,L] 
+RewriteRule ^mark/Audemars+Pique/?$    index.php?mark=$1    [NC,L]
+RewriteRule ^mark/([A-Za-z0-9-+]+)/?$    index.php?mark=$1    [NC,L]
+RewriteRule ^search/([A-Za-z0-9-]+)/?$   index.php?search1=$1&search     [NC,L]
+RewriteRule ^new_products/?$  index.php?new_products  [NC,L] 
+RewriteRule ^login/?$  index.php?Login&account [NC,L]
+RewriteRule ^registration/?$ index.php?registration  [NC,L]
+RewriteRule ^admin/?$  admin.php  [NC,L]
