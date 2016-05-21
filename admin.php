@@ -11,7 +11,7 @@ try{
 $page = new Page();
 $admin = new Adm();
 echo $page->get_body(NULL,'head');
-    $text = $page->get_header_menu();
+    $text[0] = $page->get_header_menu();
 		echo $page->get_body($text,'main');
  $text = $admin->to_Admm();
  $ra = $page->get_body($text,'to_admin');
