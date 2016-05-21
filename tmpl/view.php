@@ -37,16 +37,17 @@
 	<div id="comment"><?echo $log;?>
 	<br/>
 	
-	<textarea  name = "comment"></textarea>
+	<textarea id="comments" name="comment" ></textarea>
 	<br/>
-	<input type="submit" name="sbm">
+	<input id="sbm" type="submit" name="sbm">
 	</div>
 <?}?>
 </form>
-<?if(isset($_POST['sbm'])){?>
-<?$txt = $_POST['comment'];?>
-<?mysqli_query($connect,"Insert into comment values('','$id','$log','$txt')");?>
-<?}?>
+<div id="information"></div>
+<?//if(isset($_POST['sbm'])){?>
+<?//$txt = $_POST['comment'];?>
+<?//mysqli_query($connect,"Insert into comment values('','$id','$log','$txt')");?>
+<?//}?>
 <?$com = mysqli_query($connect,"SELECT * FROM comment");?>
 <?//for($t = 0;$t<mysqli_num_rows($connect,$com);$t++){?>
 <?$com1 = mysqli_fetch_all($com,MYSQLI_ASSOC);//}?>
@@ -55,6 +56,7 @@
 <?foreach($com1 as $item){?>
 <?if($_GET['id'] == $item['category_id']){?>
 Користувач:<?=$item['nickname'];?>
+<div class="comment_date"><h6><?=$item['data'];?></h6></div>
 <hr />
 Коментарій:<?=$item['text'];?>
 <hr />

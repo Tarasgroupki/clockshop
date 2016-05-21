@@ -1,4 +1,5 @@
 <head>
+
 <meta name="description" content="Інтернет-магазин">
 <meta name="keywords" content="Інтернет магазин годинників">
 <link rel="stylesheet" href = "css/main.css" type = "text/css">
