@@ -8,8 +8,13 @@
 <?for($i = 0;$i<count($g);$i++){?>
 <tr>
 <td><img src="<?=$g[$i][0]['image'];?>" alt=""/></td>
+<?$titles[] = $g[$i][0]['title'];?>
+<?$title_str = implode($titles,",");?>
+<td><?=$g[$i][0]['title'];?></td>
 <td><?=$g[$i][0]['description'];?></td>
-<td><form method="POST"><input type="text" name="count<?=$g[$i][0]['id'];?>" size="1" placeholder="<?=$count;?>"><input type="submit" name="sub<?=$g[$i][0]['id'];?>" value=""></form></td>
+<?$j = $g[$i][0]['id'] - 1;?>
+<?=$j;?>
+<td><form method="POST"><input type="text" name="count<?=$g[$i][0]['id'];?>" size="1" placeholder="<?=$_SESSION['counter'.$j];?>"><input type="submit" name="sub<?=$g[$i][0]['id'];?>" value=""></form></td>
 <td>$<?=$g[$i][0]['price'];?></td>
 <?if(isset($_POST['sub'.$g[$i][0]['id']])){?>
 <?$_SESSION['sub'.$g[$i][0]['id']] = $_POST['sub'.$g[$i][0]['id']];
@@ -42,11 +47,13 @@ $price += $g[$i][0]['price'];
 <td><input class="delete_button" type="submit" name="delete" value=""></td>
 </tr>
 </table>
+<?=$count;?>
 <div class="tr"><input class="form" type="text" name="text"><input id="send" type="button" name="enter" value="Отримати знижку"></div>
 <div ><p id="All">Всього:$<?=$price * $count;?><br><a href="index.php?sail"><input id="btn" type="button" name="sail" value="Оформити заказ"></a></div>
 <?$_SESSION['price_short_cart'] = $price * $count;?>
+<?=$g[0]['price'];?>
 <?$price = $g[0]['price'] * $count?>
 <?$_SESSION['pri'] = $price;?>
-<?$_SESSION['name'] = $g[0]['title'];?>
+<?$_SESSION['name'] = $title_str;?>
 
 </div>
